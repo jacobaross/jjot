@@ -8,13 +8,13 @@ set -e
 # Configuration
 QQ_FILE="${QQ_FILE:-$HOME/Documents/secondbrain/Quick Notes.md}"
 
-# Get note content from all arguments
-note="$*"
+# Prompt for note
+printf "Note: "
+read -r note
 
 # Check for empty input
 if [[ -z "$note" ]]; then
-    echo "Usage: qq <note>"
-    echo "Example: qq hello world"
+    echo "Empty note, nothing added."
     exit 1
 fi
 
@@ -25,8 +25,8 @@ if [[ ! -d "$target_dir" ]]; then
     exit 1
 fi
 
-# Format timestamp: Fri Dec 27 · 14:32
-timestamp="$(date '+%a %b %-d · %H:%M')"
+# Format timestamp: Fri Dec 27 · 2:32 PM EST
+timestamp="$(date '+%a %b %-d · %-I:%M %p %Z')"
 
 # Append note to file
 {

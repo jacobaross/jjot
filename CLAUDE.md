@@ -5,7 +5,8 @@ A minimal CLI for capturing thoughts instantly from the terminal.
 ## Usage
 
 ```bash
-qq "your note here"
+qq
+Note: your note here
 ```
 
 ## Behavior
@@ -54,6 +55,5 @@ Place `qq` in `~/.local/bin/` or another directory in `$PATH`.
 
 ## Edge Cases
 
-- Empty input: print usage and exit
+- Empty input: print message and exit
 - Missing target directory: error with helpful message
-- Quoted vs unquoted args: accept both `qq "hello world"` and `qq hello world`
